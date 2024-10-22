@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  background-color: yellow;
+}
+
+.today-weather {
+  background-color: skyblue;
+}
+.recommend-clothes {
+  background-color: lightcoral;
+}

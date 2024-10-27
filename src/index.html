@@ -6,20 +6,22 @@
     <link href="./output.css" rel="stylesheet" />
   </head>
   <body>
-    <header class="bg-gray-300 container mx-auto">
-      <div class="text-3xl">로고</div>
-    </header>
-    <main class="container mx-auto flex flex-row">
-      <section class="bg-gray-400 text-white basis-1/2 grid place-content-center">
-        <div id="city">도시 정보를 불러오는 중 ..</div>
-        <div id="currentTemp">현재 기온을 불러오는 중 ..</div>
-        <div id="currentWeather">현재 날씨를 가져오는 중 ..</div>
-        <div></div>
+    <main class="flex flex-col h-screen">
+      <section class="basis-1/12 p-6 flex">
+        <div class="text-4xl">오늘 뭐 입지?</div>
       </section>
-      <section class="bg-gray-400 text-white basis-1/2 grid place-content-center">
-        <div>오늘의 옷차림</div>
-        <div>옷차림 이미지</div>
-        <div>옷차림 설명</div>
+      <section class="basis-11/12 flex text-3xl">
+        <article class="basis-1/2 bg-gray-200 p-8 flex flex-col items-center">
+          <div id="city">위치명</div>
+          <img id="weatherIcon" />
+          <div id="currentTemp">현 기온</div>
+          <div id="currentWeather">현재 날씨</div>
+        </article>
+        <article class="basis-1/2 p-8 flex flex-col items-center text-3xl">
+          <div>오늘의 옷차림</div>
+          <div>옷차림 이미지</div>
+          <div>옷차림 설명</div>
+        </article>
       </section>
     </main>
     <script src="config.js"></script>

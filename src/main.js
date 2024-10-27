@@ -50,9 +50,14 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       const response = await fetch(url); // promise 객체를 우선 반환, fullfilled 되면 response 객체를 전달
       const data = await response.json(); // json 형식으로 변환
+      console.log(data);
 
       const currentTemp = data.main.temp; // 현재 기온
       document.getElementById("currentTemp").innerText = `${currentTemp}℃`; // 기온을 화면에 표시
+
+      const iconCode = data.weather[0].icon;
+      const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+      document.getElementById("weatherIcon").src = iconUrl;
 
       const currentWeather = data.weather[0].description; // 날씨 상태, 객체 하나로 이루어진 배열
       document.getElementById("currentWeather").innerText = `${currentWeather}`; // 기온을 화면에 표시

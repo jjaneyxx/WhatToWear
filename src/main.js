@@ -55,6 +55,10 @@ document.addEventListener("DOMContentLoaded", () => {
       const currentTemp = data.main.temp; // 현재 기온
       document.getElementById("currentTemp").innerText = `${currentTemp}℃`; // 기온을 화면에 표시
 
+      const { outfit, outfitInfo } = getClothes(currentTemp);
+      document.getElementById("outfit").innerText = `${outfit} 를 추천해요`; // 추천 옷차림을 화면에 표시
+      document.getElementById("outfitInfo").innerText = `${outfitInfo}`;
+
       const iconCode = data.weather[0].icon;
       const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
       document.getElementById("weatherIcon").src = iconUrl;
@@ -66,3 +70,25 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 });
+
+function getClothes(temp) {
+  console.log("getClothes() 실행", temp);
+  switch (true) {
+    case temp <= 4:
+      return { outfit: "롱패딩, 두꺼운 코트, 기모 청바지, 목도리", outfitInfo: "추운 날씨에 적합한 방한용 의상" };
+    case 4 < temp && temp <= 8:
+      return { outfit: "울 코트, 가죽 자켓, 니트, 레깅스, 후드티", outfitInfo: "초겨울 느낌의 따뜻한 의상과 후드티" };
+    case 8 < temp && temp <= 11:
+      return { outfit: "트렌치코트, 데님 재킷, 니트, 와이드 팬츠, 후드집업", outfitInfo: "가을/봄에 적합한 캐주얼 스타일" };
+    case 11 < temp && temp <= 16:
+      return { outfit: "자켓, 가디건과 셔츠, 청바지, 후드티", outfitInfo: "선선한 날씨에 어울리는 가벼운 아우터와 후드티" };
+    case 16 < temp && temp <= 19:
+      return { outfit: "맨투맨, 얇은 니트, 면바지, 후드집업", outfitInfo: "편안하고 캐주얼한 초가을 스타일" };
+    case 19 < temp && temp <= 22:
+      return { outfit: "얇은 가디건, 반팔 티셔츠, 슬랙스", outfitInfo: "봄/가을에 어울리는 간편한 캐주얼 스타일" };
+    case 22 < temp && temp <= 27:
+      return { outfit: "반팔, 반바지, 린넨 팬츠", outfitInfo: "여름 초입에 적합한 가벼운 옷차림" };
+    case 27 < temp:
+      return { outfit: "민소매, 원피스", outfitInfo: "무더운 여름 날씨에 적합한 시원한 의상" };
+  }
+}
